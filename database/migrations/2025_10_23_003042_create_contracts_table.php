@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date')->nullable();
             $table->enum('rate_type', ['daily', 'monthly']);
-            $talbe->decimal('rate', total: 10, places: 2);
+            $table->decimal('rate', total: 10, places: 2);
             $table->timestamps();
         });
     }
