@@ -61,6 +61,14 @@ select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
 
-/* \[:where(&)\]:size-4 {
-    @apply size-4;
-} */
+.table {
+    @apply w-full;
+}
+
+.table th {
+    @apply px-6 py-3 text-xs font-medium text-nos-800 dark:text-nos-200 uppercase tracking-wider-w;
+}
+
+.table td {
+    @apply px-6 py-4 whitespace-nowrap text-nos-700 dark:text-nos-300;
+}
