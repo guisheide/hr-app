@@ -12,12 +12,12 @@ class Department extends Model
         'company_id',
     ];
 
-    public function company(): BelongsTo
+    public function company()
     {
         return $this->belongsTo(Company::class);
     }
 
-    public function designations(): HasMany
+    public function designations()
     {
         return $this->hasMany(Designation::class);
     }

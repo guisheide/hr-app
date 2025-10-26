@@ -16,7 +16,7 @@ class Company extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class, 'company_user');
+        return $this->belongsToMany(User::class, 'company_user');
     }
 
     public function departments()

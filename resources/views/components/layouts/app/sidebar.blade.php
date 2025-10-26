@@ -16,25 +16,70 @@
         <flux:navlist variant="outline">
             <flux:navlist.group :heading="__('Platform')" class="grid">
                 <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')"
-                    wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    wire:navigate>{{ __('Dashboard') }}
+                </flux:navlist.item>
             </flux:navlist.group>
 
             <flux:navlist.group :heading="__('Companies')" class="grid">
                 <flux:navlist.item icon="building-office" :href="route('companies.create')"
                     :current="request()->routeIs('companies.create')" wire:navigate>
-                    {{ __('Create a new companie') }}</flux:navlist.item>
+                    {{ __('Create a new companie') }}
+                </flux:navlist.item>
             </flux:navlist.group>
 
             <flux:navlist.group :heading="__('Departments')" class="grid">
+                <flux:navlist.item icon="building-office-2" :href="route('departments.index')"
+                    :current="request()->routeIs('departments.index')" wire:navigate>
+                    {{ __('List of departments') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="plus" :href="route('departments.create')"
+                    :current="request()->routeIs('departments.create')" wire:navigate>
+                    {{ __('Create a new department') }}
+                </flux:navlist.item>
             </flux:navlist.group>
 
             <flux:navlist.group :heading="__('Designations')" class="grid">
+                <flux:navlist.item icon="briefcase" :href="route('designations.index')"
+                    :current="request()->routeIs('designations.index')" wire:navigate>
+                    {{ __('List of designations') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="plus" :href="route('designations.create')"
+                    :current="request()->routeIs('designations.create')" wire:navigate>
+                    {{ __('Create a new designation') }}
+                </flux:navlist.item>
+            </flux:navlist.group>
+
+            <flux:navlist.group :heading="__('Employees')" class="grid">
+                <flux:navlist.item icon="users" :href="route('employees.index')"
+                    :current="request()->routeIs('employees.index')" wire:navigate>
+                    {{ __('List of employees') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="users" :href="route('employees.create')"
+                    :current="request()->routeIs('employees.create')" wire:navigate>
+                    {{ __('Create a new employee') }}
+                </flux:navlist.item>
             </flux:navlist.group>
 
             <flux:navlist.group :heading="__('Contracts')" class="grid">
+                <flux:navlist.item icon="users" :href="route('contracts.index')"
+                    :current="request()->routeIs('contracts.index')" wire:navigate>
+                    {{ __('List of contracts') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="users" :href="route('contracts.create')"
+                    :current="request()->routeIs('contracts.create')" wire:navigate>
+                    {{ __('Create a new contract') }}
+                </flux:navlist.item>
             </flux:navlist.group>
 
             <flux:navlist.group :heading="__('Payroll')" class="grid">
+                <flux:navlist.item icon="users" :href="route('payrolls.index')"
+                    :current="request()->routeIs('payrolls.index')" wire:navigate>
+                    {{ __('List of payrolls') }}
+                </flux:navlist.item>
+                <flux:navlist.item icon="users" :href="route('payments.index')"
+                    :current="request()->routeIs('payments.index')" wire:navigate>
+                    {{ __('Payroll Payments') }}
+                </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
 

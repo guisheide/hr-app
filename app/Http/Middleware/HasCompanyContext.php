@@ -20,6 +20,6 @@ class HasCompanyContext
             return $next($request);
         }
         session()->flash('error', 'Please select a company to proceed.');
-        return redirect(URL::previous());
+        return redirect()->route('companies.index');
     }
 }
