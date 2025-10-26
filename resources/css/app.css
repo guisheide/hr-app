@@ -52,7 +52,7 @@
 }
 
 [data-flux-label] {
-    @apply  !mb-0 !leading-tight;
+    @apply !mb-0 !leading-tight;
 }
 
 input:focus[data-flux-control],
@@ -61,6 +61,7 @@ select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
 
+/* 
 .table {
     @apply w-full;
 }
@@ -71,4 +72,4 @@ select:focus[data-flux-control] {
 
 .table td {
     @apply px-6 py-4 whitespace-nowrap text-nos-700 dark:text-nos-300;
-}
+} */

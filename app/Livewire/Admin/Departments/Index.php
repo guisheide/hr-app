@@ -12,7 +12,7 @@ class Index extends Component
     use WithPagination, WithoutUrlPagination;
     public function delete ($id){
         Department::find($id)->delete();
-        session()->flash('message', 'Contract deleted successfully.');
+        session()->flash('message', 'Department deleted successfully.');
     }
     public function render()
     {
