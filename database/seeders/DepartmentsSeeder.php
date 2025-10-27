@@ -23,7 +23,6 @@ class DepartmentsSeeder extends Seeder
                 ['name' => 'Marketing'],
                 ['name' => 'Sales'],
             ]);
-        }
 
         foreach($departments as $department) {
             switch ($department->name){
@@ -80,12 +79,13 @@ class DepartmentsSeeder extends Seeder
                 break;
             }
 
-            foreach($designations as $designation){
-                $department->designations()->create([
-                    'name' => $designation,
-                ]);
+                foreach($designations as $designation){
+                    $department->designations()->create([
+                        'name' => $designation,
+                    ]);
+                }
             }
-
         }
     }
 }
+

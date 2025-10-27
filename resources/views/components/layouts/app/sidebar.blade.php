@@ -25,6 +25,10 @@
                     :current="request()->routeIs('companies.create')" wire:navigate>
                     {{ __('Create a new companie') }}
                 </flux:navlist.item>
+                <flux:navlist.item icon="building-office-2" :href="route('companies.index')"
+                    :current="request()->routeIs('companies.index')" wire:navigate>
+                    {{ __('List of companies') }}
+                </flux:navlist.item>
             </flux:navlist.group>
 
             <flux:navlist.group :heading="__('Departments')" class="grid">
@@ -85,17 +89,18 @@
 
         <flux:spacer />
 
-        {{-- <flux:navlist variant="outline">
-            <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit"
-                target="_blank">
-                {{ __('Repository') }}
-            </flux:navlist.item>
-
-            <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire"
-                target="_blank">
-                {{ __('Documentation') }}
-            </flux:navlist.item>
-        </flux:navlist> --}}
+        <flux:dropdown>
+            <flux:profile :name="App\Models\Company::find(session('company_id'))->name??'Select Company'"
+                :initials="App\Models\Company::find(session('company_id'))->initials??'N/A'"
+                icon-trailing="chevrons-up-down" />
+            <flux:menu>
+                @foreach (auth()->user()->companies as $company)
+                    <flux:menu.radio.group>
+                        @livewire('company-switch', ['company' => $company], key($company->id))
+                    </flux:menu.radio.group>
+                @endforeach
+            </flux:menu>
+        </flux:dropdown>
 
         <!-- Desktop User Menu -->
         <flux:dropdown class="hidden lg:block" position="bottom" align="start">

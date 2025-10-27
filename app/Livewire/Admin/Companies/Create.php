@@ -24,7 +24,7 @@ class Create extends Component
         return [
             'company.name' => 'required|string|max:255',
             'company.email' => 'required|email|max:255',
-            'company.website' => 'nullable|url|max:255',
+            'company.website' => 'nullable|max:255',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // 2048 KB = 2 MB
         ];
     }
@@ -38,7 +38,7 @@ class Create extends Component
         }
         $this->company->save();
         session()->flash('message', 'Company created successfully.');
-        return redirect()->route('admin.companies.index');
+        return redirect()->route('companies.index');
     }
 
     public function render()
