@@ -39,4 +39,12 @@ class Edit extends Component
             'departments' => Department::inCompany()->get(),
         ]);
     }
+
+    public function save()
+    {
+        $this->validate();
+        $this->employee->save();
+        session()->flash('message', 'Employee edited successfully.');
+        return redirect()->route('employees.index', true);
+    }
 }

@@ -24,12 +24,12 @@ class Employee extends Model
         return $this->designation->department();
     }
 
-    public function scopeInCompany($query, $companyId)
+    public function scopeInCompany($query)
     {
-        return $query->whereHas('designation.department', function ($q) use ($companyId) {
-            $q->where('company_id', $companyId);
+        return $query->whereHas('designation', function ($q){
+            $q->inCompany();
         });
-    }
+    } 
 
     public function scopeSearchByName($query, $name)
     {

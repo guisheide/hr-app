@@ -21,10 +21,10 @@ class Designation extends Model
         return $this->hasMany(Employee::class);
     }
 
-    public function scopeInCompany($query, $companyId)
+    public function scopeInCompany($query)
     {
-        return $query->whereHas('department', function ($q) use ($companyId) {
-            $q->where('company_id', $companyId);
+        return $query->whereHas('department', function ($q){
+            $q->inCompany();
         });
     } 
 }
