@@ -23,7 +23,7 @@ class Show extends Component
         $filepath = storage_path('app/public/payslips/payslip_'.$salary->id.'.pdf');
         $pdf->save($filepath);
         return response()->download($filepath)->deleteFileAfterSend();
-    }
+    }    
     public function render()
     {
         return view('livewire.admin.payroll.show');

@@ -16,6 +16,11 @@ class Contract extends Model
         return $this->belongsTo(Designation::class);
     }
 
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
+
     public function scopeInCompany($query)
     {
         return $query->whereHas('designation', function ($q)

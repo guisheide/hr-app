@@ -35,9 +35,6 @@ class Edit extends Component
     public function save()
     {
         $this->validate();
-
-        if ($this->logo) if($this->company->logo) Storage::disk('public')->delete($this->company->logo);
-        
         $this->company->save();
         session()->flash('message', 'Company edited successfully.');
         return redirect()->route('companies.index');

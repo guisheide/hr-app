@@ -20,7 +20,7 @@ class Edit extends Component
         return [
             'contract.employee_id' => 'required',
             'contract.start_date' => 'required|date',
-            'contract.end_date' => 'nullable|date|after_or_equal:contract.start_date',
+            'contract.end_date' => 'nullable|date',
             'contract.designation_id' => 'required',
             'contract.rate_type' => 'required',
             'contract.rate' => 'required|numeric',

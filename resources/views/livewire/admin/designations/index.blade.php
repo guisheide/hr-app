@@ -5,44 +5,42 @@
         <flux:separator />
     </div>
 
-    <div class="overflow-x-auto overflow-y-auto bg-white rounded-md shadow-sm w-full flex-1">
-        <table class="min-w-full divide-y divide-gray-200 table-auto">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Designation Name
-                    </th>
-                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Department</th>
-                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Number of employees</th>
-                    <th class="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Actions</th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                @foreach ($designations as $designation)
-                    <tr>
-                        <td class="px-4 py-2 text-sm text-gray-700 text-center">{{ $designation->name }}</td>
-                        <td class="px-4 py-2 text-sm text-gray-700 text-center">
-                            {{ $designation->department->name }}</td>
-                        <td class="px-4 py-2 text-sm text-gray-700 text-center">
-                            {{ $designation->employees->count() }}</td>
-                        <td class="px-4 py-2 text-sm text-gray-700 text-center">
-                            <div class="inline-block">
-                                <flux:button variant="filled" icon="pencil"
-                                    :href="route('designations.edit', $designation->id)" />
-                            </div>
-                            <div class="inline-block">
-                                <flux:button variant="danger" icon="trash"
-                                    wire:click="delete({{ $designation->id }})" />
-                            </div>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="py-2 px-2 bg-nos-200">
-            {{ $designations->links() }}
-        </div>
+    <x-data-table.frame>
+
+        <x-slot:head>
+            <x-data-table.th>Designation Name</x-data-table.th>
+            <x-data-table.th>Department</x-data-table.th>
+            <x-data-table.th>Number of employees</x-data-table.th>
+            <x-data-table.th>Actions</x-data-table.th>
+        </x-slot:head>
+
+        @forelse ($designations as $designation)
+            <tr wire:key="designation-{{ $designation->id }}">
+                <x-data-table.td>{{ $designation->name }}</x-data-table.td>
+                <x-data-table.td>{{ $designation->department->name }}</x-data-table.td>
+                <x-data-table.td>{{ $designation->employees->count() }}</x-data-table.td>
+                <x-data-table.td>
+                    <div class="inline-block">
+                        <flux:button variant="filled" icon="pencil"
+                            :href="route('designations.edit', $designation->id)" />
+                    </div>
+                    <div class="inline-block">
+                        <flux:button variant="danger" icon="trash"
+                            wire:click="delete({{ $designation->id }})" />
+                    </div>
+                </x-data-table.td>
+            </tr>
+        @empty
+            <tr>
+                <x-data-table.td colspan="4" class="px-6 py-8 text-sm text-gray-500">
+                    Nenhuma designação encontrada.
+                </x-data-table.td>
+            </tr>
+        @endforelse
+
+    </x-data-table.frame>
+
+    <div class="mt-4">
+        {{ $designations->links() }}
     </div>
+</div>

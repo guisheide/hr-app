@@ -14,18 +14,16 @@ class Index extends Component
 
     public $search = '';
 
-    public function deleteContract($id){
+    public function delete($id){
         $contract = Contract::inCompany()->find($id);
         $contract->delete();
         session()->flash('success', 'Contract deleted successfully');
-        //Lógica para eliminar contrato
     }
-
 
     public function render()
     {
         return view('livewire.admin.contracts.index', [
-            'contracts' => Contract::inCompany()->searchByEmployee($this->search)->orderBy('created_at','desc')->paginate(10),
+            'contracts' => Contract::inCompany()->paginate(10),
         ]);
     }
 }

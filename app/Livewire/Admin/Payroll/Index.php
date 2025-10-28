@@ -21,6 +21,10 @@ class Index extends Component
             'monthYear' => 'required',
         ];
     }
+    // public function viewPayroll($id){
+    //     $payroll= Payroll::inCompany($id);
+    //     $this->redirectIntended(route('admin.payroll.view', $payroll), true);
+    // }
 
     public function generatePayroll(){
         $this->validate();
