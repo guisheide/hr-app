@@ -9,9 +9,10 @@ class Index extends Component
 {
     public function delete ($id){
         $company = Company::find($id);
-        if($company){
-            $company->delete();
+         if($company){
+             $company->delete();
             session()->flash('message', 'Company deleted successfully.');
+            $this->redirect(route('companies.index'));
         }
     }
 

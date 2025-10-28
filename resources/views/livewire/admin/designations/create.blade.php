@@ -13,24 +13,12 @@
             <option selected disabled>Select a department</option>
 
             @foreach ($departments as $department)
-                <option value="{{ $department->id }}">{{ $department->name }}</option>
+                <option value="{{ $department->id }}"> {{ $department->name }} </option>
             @endforeach
 
         </flux:select>
-
         <flux:input label="Designation name" wire:model.live="designation.name"
             :invalid="$errors->has('designation.name')" type="text" />
         <flux:button variant="primary" type="submit">Save</flux:button>
- <div x-data="{ foo: 'bar' }">
-    <span x-text="foo"><!-- Will output: "bar" --></span>
- 
-    <div x-data="{ bar: 'baz' }">
-        <span x-text="foo"><!-- Will output: "bar" --></span>
- 
-        <div x-data="{ foo: 'bob' }">
-            <span x-text="foo"><!-- Will output: "bob" --></span>
-        </div>
-    </div>
-</div>
     </form>
 </div>
