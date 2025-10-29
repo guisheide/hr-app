@@ -20,6 +20,12 @@ This is a Human Resources (HR) management application built with the Laravel fra
 * **PHP Package Manager:** Composer  
 * **JS Package Manager:** Node.js (npm or yarn)
 
+## **Database Schema**
+
+The database schema for this project can be viewed online at dbdiagram.io:
+
+https://dbdiagram.io/d/Personal-HR-management-69013603357668b732114255
+
 ## **Prerequisites**
 
 Ensure you have the following software installed on your local machine:
