@@ -77,6 +77,16 @@ php artisan serve
 
 The application will be accessible at http://127.0.0.1:8000 (or the port specified by the command).
 
+## **Default Admin Login**
+
+A default administrator user is created during the initial migration:
+
+Email: admin@example.com
+
+Password: 12345678
+
+Use these credentials to log in for the first time. It is highly recommended to change this password immediately after logging in.
+
 ## **Contribution**
 
 Contributions are welcome\! If you find a bug or have a suggestion for improvement, please open an *issue* on the GitHub repository. To contribute code, *fork* the project, create a *branch* for your feature (git checkout \-b feature/new-feature), and submit a *Pull Request*.
